@@ -32,7 +32,7 @@ contract Voting {
     function castVote(string memory _candidate) external {
         require(block.timestamp < votingDeadline, "voting has ended");
         require(!hasVoted[msg.sender], "voter has voted");
-        require(votes[_candidate] > 0, "votes must be greater zero");
+        // require(votes[_candidate] > 0, "votes must be greater zero");
 
         votes[_candidate] += 1;
         hasVoted[msg.sender] = true;
