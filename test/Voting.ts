@@ -65,5 +65,18 @@ describe("Voting", function () {
       // const votes = await voting.votes(candidates[0]);
       expect(votecount).to.eq(1);
     });
+
+    it("Should get winner of vote successfully", async function () {
+      const { voting, owner, otherAccount, account1 } = await loadFixture(
+        deployVoting
+      );
+
+      await voting.castVote(candidates[0]);
+      await voting.hasVoted(owner);
+      const winner = await voting.getWinner();
+
+      // const votes = await voting.votes(candidates[0]);
+      expect(winner).to.eq(candidates[0]);
+    });
   });
 });

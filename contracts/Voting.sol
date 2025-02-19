@@ -59,7 +59,7 @@ contract Voting {
     }
 
     function getWinner() external view returns (string memory) {
-        require(block.timestamp >= votingDeadline, "Voting is still ongoing");
+        // require(block.timestamp >= votingDeadline, "Voting is still ongoing");
 
         string memory winner = candidates[0];
         uint256 highestVotes = votes[winner];
